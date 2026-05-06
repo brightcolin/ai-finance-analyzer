@@ -8,6 +8,8 @@
 
 ---
 
+![Demo](demo.gif)
+
 ## What This Is
 
 AI Finance Analyzer is a **developer-first AI financial decision engine**. It takes raw expense data (WeChat Pay CSV, etc.) and produces structured analysis with actionable, quantified suggestions.
