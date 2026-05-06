@@ -9,8 +9,8 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 
 from analyzer.models.schemas import (
-    Category,
     CategorizedTransaction,
+    Category,
     CategoryBreakdown,
     TransactionType,
 )

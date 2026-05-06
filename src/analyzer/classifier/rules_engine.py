@@ -12,8 +12,8 @@ import json
 from pathlib import Path
 
 from analyzer.models.schemas import (
-    Category,
     CategorizedTransaction,
+    Category,
     ClassificationMethod,
     Transaction,
     TransactionType,

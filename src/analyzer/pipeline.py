@@ -22,7 +22,6 @@ from analyzer.classifier import classify
 from analyzer.engine import analyze
 from analyzer.models.schemas import (
     AnalysisReport,
-    CategorizedTransaction,
     FinancialAdvice,
     FullReport,
     Transaction,

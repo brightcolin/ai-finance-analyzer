@@ -10,7 +10,8 @@ The templates receive STRUCTURED analysis data (never raw transactions)
 as a deliberate privacy-preserving design.
 """
 
-SYSTEM_PROMPT = """You are a professional financial advisor AI. Your role is to analyze structured spending data and provide actionable, specific advice.
+SYSTEM_PROMPT = """You are a professional financial advisor AI. \
+Your role is to analyze structured spending data and provide actionable, specific advice.
 
 Rules:
 1. Every suggestion MUST include a concrete action and a quantified expected impact
@@ -35,7 +36,8 @@ Respond in JSON format ONLY with this structure:
 }}"""
 
 
-ANALYSIS_PROMPT = """Based on the following financial analysis data, provide professional spending advice.
+ANALYSIS_PROMPT = """Based on the following financial analysis data, \
+provide professional spending advice.
 
 ## Financial Summary
 - Period: {start_date} to {end_date}

@@ -15,7 +15,6 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Optional
 
 from analyzer.advisor.prompts import build_analysis_prompt, build_system_prompt
 from analyzer.core.config import get_config

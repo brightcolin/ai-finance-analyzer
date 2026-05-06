@@ -9,14 +9,13 @@ from __future__ import annotations
 
 import statistics
 from collections import defaultdict
-from datetime import date
 
 from analyzer.models.schemas import (
     CategorizedTransaction,
     Category,
+    TransactionType,
     TrendAnalysis,
     TrendPoint,
-    TransactionType,
 )
 
 

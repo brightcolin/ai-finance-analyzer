@@ -12,15 +12,12 @@ Computes a 0-100 score based on:
 from __future__ import annotations
 
 import math
-import statistics
-from collections import defaultdict
 
 from analyzer.core.config import get_config
 from analyzer.models.schemas import (
     CategorizedTransaction,
     CategoryBreakdown,
     HealthScore,
-    TransactionType,
 )
 
 

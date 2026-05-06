@@ -11,21 +11,22 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Optional
 
 from analyzer.core.config import get_config
 from analyzer.models.schemas import (
-    Category,
     CategorizedTransaction,
+    Category,
     ClassificationMethod,
     Transaction,
 )
 
 logger = logging.getLogger(__name__)
 
-CLASSIFICATION_PROMPT = """You are a financial transaction classifier. Given a transaction description, classify it into exactly ONE of these categories:
+CLASSIFICATION_PROMPT = """You are a financial transaction classifier. \
+Given a transaction description, classify it into exactly ONE category.
 
-Categories: food, transport, housing, entertainment, shopping, health, education, utilities, transfer, other
+Categories: food, transport, housing, entertainment, shopping, \
+health, education, utilities, transfer, other
 
 Transaction: "{description}"
 Counterparty: "{counterparty}"

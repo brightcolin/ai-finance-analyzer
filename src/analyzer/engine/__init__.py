@@ -15,7 +15,6 @@ from analyzer.engine.health import compute_health_score
 from analyzer.engine.risks import detect_risks
 from analyzer.engine.structure import (
     analyze_structure,
-    compute_essential_ratio,
     compute_savings_rate,
     compute_totals,
 )
