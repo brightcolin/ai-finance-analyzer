@@ -24,7 +24,7 @@ from analyzer import run_pipeline
 
 def main():
     # Path to sample WeChat Pay CSV
-    sample_file = Path("微信支付账单流水文件(20260501-20260505).xlsx")
+    sample_file = Path(__file__).parent / "sample_wechat.csv"
 
     print("=" * 60)
     print("  AI Finance Analyzer — Quick Start Demo")
