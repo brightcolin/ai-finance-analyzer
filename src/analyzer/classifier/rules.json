@@ -1,0 +1,109 @@
+{
+  "_comment": "Keyword-to-category mapping rules for Chinese spending scenarios. Keys are keywords to match against transaction description and counterparty. Values are category labels. Rules are evaluated in order; first match wins.",
+
+  "food": {
+    "keywords": [
+      "美团", "饿了么", "外卖", "餐饮", "餐厅", "饭店", "小吃",
+      "奶茶", "咖啡", "星巴克", "瑞幸", "麦当劳", "肯德基", "必胜客",
+      "海底捞", "火锅", "烧烤", "面包", "蛋糕", "水果", "菜市场",
+      "超市", "便利店", "全家", "7-11", "罗森", "盒马", "叮咚买菜",
+      "多多买菜", "朴朴", "每日优鲜", "食堂", "早餐", "午餐", "晚餐",
+      "夜宵", "零食", "饮料", "茶", "酒", "Starbucks", "KFC",
+      "McDonald", "pizza", "restaurant", "food", "cafe", "coffee",
+      "grocery", "supermarket", "bakery", "fruit"
+    ],
+    "sub_categories": {
+      "takeout": ["美团", "饿了么", "外卖"],
+      "coffee_tea": ["星巴克", "瑞幸", "咖啡", "奶茶", "茶"],
+      "groceries": ["超市", "盒马", "叮咚买菜", "多多买菜", "菜市场", "便利店"]
+    }
+  },
+
+  "transport": {
+    "keywords": [
+      "滴滴", "打车", "出租车", "地铁", "公交", "高铁", "火车",
+      "机票", "飞机", "航空", "12306", "携程", "去哪儿", "同程",
+      "加油", "停车", "过路费", "ETC", "共享单车", "哈啰", "青桔",
+      "美团单车", "摩拜", "Uber", "taxi", "metro", "bus", "train",
+      "flight", "airline", "parking", "gas", "fuel", "toll"
+    ],
+    "sub_categories": {
+      "ride_hailing": ["滴滴", "打车", "出租车", "Uber", "taxi"],
+      "public_transit": ["地铁", "公交", "metro", "bus"],
+      "travel": ["机票", "飞机", "航空", "高铁", "火车", "12306"]
+    }
+  },
+
+  "housing": {
+    "keywords": [
+      "房租", "租金", "物业", "水费", "电费", "燃气", "暖气",
+      "房贷", "月供", "公积金", "维修", "装修", "家具", "家电",
+      "rent", "mortgage", "property", "maintenance"
+    ]
+  },
+
+  "entertainment": {
+    "keywords": [
+      "电影", "游戏", "Steam", "腾讯", "网易", "bilibili", "爱奇艺",
+      "优酷", "芒果TV", "Netflix", "Spotify", "音乐", "KTV",
+      "演出", "门票", "旅游", "酒店", "民宿", "Airbnb", "景区",
+      "游乐", "密室", "剧本杀", "健身房", "瑜伽", "运动",
+      "movie", "game", "music", "hotel", "travel", "gym", "sport",
+      "fitness", "entertainment", "concert", "ticket"
+    ],
+    "sub_categories": {
+      "subscription": ["爱奇艺", "优酷", "Netflix", "Spotify", "芒果TV", "bilibili"],
+      "gaming": ["Steam", "游戏", "game"],
+      "travel_leisure": ["旅游", "酒店", "民宿", "Airbnb", "景区"]
+    }
+  },
+
+  "shopping": {
+    "keywords": [
+      "淘宝", "天猫", "京东", "拼多多", "苏宁", "唯品会", "抖音商城",
+      "小红书", "得物", "ZARA", "优衣库", "H&M", "Nike", "Adidas",
+      "Apple", "华为", "小米", "数码", "手机", "电脑", "服装",
+      "鞋", "包", "化妆品", "护肤", "Amazon", "shopping", "store",
+      "mall", "clothes", "shoes", "electronics"
+    ],
+    "sub_categories": {
+      "online": ["淘宝", "天猫", "京东", "拼多多", "Amazon"],
+      "fashion": ["ZARA", "优衣库", "H&M", "Nike", "Adidas", "服装", "鞋"],
+      "electronics": ["Apple", "华为", "小米", "数码", "手机", "电脑"]
+    }
+  },
+
+  "health": {
+    "keywords": [
+      "医院", "药店", "药房", "诊所", "体检", "牙科", "眼科",
+      "挂号", "门诊", "住院", "保险", "医保", "药", "医疗",
+      "hospital", "pharmacy", "clinic", "doctor", "dental",
+      "medical", "health", "insurance"
+    ]
+  },
+
+  "education": {
+    "keywords": [
+      "学费", "培训", "课程", "教育", "书", "文具", "考试",
+      "驾校", "网课", "得到", "知乎", "极客时间", "Udemy", "Coursera",
+      "school", "course", "education", "book", "training", "tuition",
+      "学习", "辅导"
+    ]
+  },
+
+  "utilities": {
+    "keywords": [
+      "话费", "流量", "宽带", "充值", "中国移动", "中国联通", "中国电信",
+      "水电煤", "物业费", "管理费",
+      "phone", "internet", "broadband", "utility", "bill"
+    ]
+  },
+
+  "transfer": {
+    "keywords": [
+      "转账", "红包", "还款", "信用卡还款", "花呗", "借呗",
+      "微粒贷", "理财", "基金", "股票", "定期",
+      "transfer", "repayment", "investment", "fund"
+    ]
+  }
+}

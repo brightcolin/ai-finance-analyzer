@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-finance-analyzer"
+version = "0.1.0"
+description = "A developer-first AI financial decision engine that transforms expense data into actionable insights."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["finance", "ai", "analyzer", "budget", "llm", "deepseek"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = ["python-dotenv>=1.0.0", "openpyxl>=3.1.0"]
+
+[project.optional-dependencies]
+llm = ["openai>=1.0.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4.0",
+]
+all = ["ai-finance-analyzer[llm,dev]"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/ai-finance-analyzer"
+Repository = "https://github.com/yourusername/ai-finance-analyzer"
+Documentation = "https://yourusername.github.io/ai-finance-analyzer/"
+Issues = "https://github.com/yourusername/ai-finance-analyzer/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.coverage.run]
+source = ["analyzer"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 70
