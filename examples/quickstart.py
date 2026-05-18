@@ -2,11 +2,12 @@
 """
 Quick Start Example — AI Finance Analyzer
 
-Demonstrates the full pipeline from a WeChat Pay CSV to
+Demonstrates the full pipeline from a bill CSV to
 actionable financial insights in just a few lines.
 
 Usage:
-    python examples/quickstart.py
+    python examples/quickstart.py                          # WeChat sample (CNY)
+    python examples/quickstart.py examples/sample_generic.csv  # English sample (USD)
 
 Set DEEPSEEK_API_KEY environment variable for real AI advice.
 Without it, the system uses smart mock advice based on your data.
@@ -23,8 +24,10 @@ from analyzer import run_pipeline
 
 
 def main():
-    # Path to sample WeChat Pay CSV
-    sample_file = Path(__file__).parent / "sample_wechat.csv"
+    if len(sys.argv) > 1:
+        sample_file = Path(sys.argv[1])
+    else:
+        sample_file = Path(__file__).parent / "sample_wechat.csv"
 
     print("=" * 60)
     print("  AI Finance Analyzer — Quick Start Demo")
@@ -44,8 +47,8 @@ def main():
     print("-" * 40)
     print(f"  Period:       {analysis.start_date} to {analysis.end_date}")
     print(f"  Transactions: {analysis.total_transactions}")
-    print(f"  Total Expense: ¥{analysis.total_expense:,.2f}")
-    print(f"  Total Income:  ¥{analysis.total_income:,.2f}")
+    print(f"  Total Expense: {analysis.total_expense:,.2f}")
+    print(f"  Total Income:  {analysis.total_income:,.2f}")
     print(f"  Savings Rate:  {analysis.savings_rate:.1%}")
     print()
 
@@ -64,7 +67,7 @@ def main():
     print("-" * 40)
     for cb in analysis.category_breakdown[:8]:
         bar = "█" * int(cb.percentage * 40)
-        print(f"  {cb.category.value:15s} ¥{cb.total:>8,.0f}  {cb.percentage:5.1%}  {bar}")
+        print(f"  {cb.category.value:15s} {cb.total:>10,.2f}  {cb.percentage:5.1%}  {bar}")
     print()
 
     # --- Risk Alerts ---

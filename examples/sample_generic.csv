@@ -1,0 +1,78 @@
+date,description,amount,category
+2026-01-02,Starbucks - morning coffee,6.50,food
+2026-01-02,McDonald's - lunch,12.30,food
+2026-01-03,Uber - commute to work,18.40,transport
+2026-01-03,Trader Joe's - weekly groceries,87.20,food
+2026-01-04,Amazon - Bluetooth headphones,89.99,shopping
+2026-01-05,Netflix - monthly subscription,15.49,entertainment
+2026-01-06,Chipotle - lunch,14.75,food
+2026-01-07,CVS Pharmacy - vitamins,23.40,health
+2026-01-08,Subway MetroCard - top up,33.00,transport
+2026-01-10,Employer - monthly salary,-5000.00,income
+2026-01-10,DoorDash - dinner delivery,35.20,food
+2026-01-11,Costco - groceries bulk buy,156.80,food
+2026-01-12,Starbucks - afternoon latte,7.25,food
+2026-01-13,Uber - ride to airport,22.60,transport
+2026-01-14,Apple App Store - app purchase,9.99,entertainment
+2026-01-15,Landlord - January rent,1800.00,housing
+2026-01-16,Spotify - monthly subscription,10.99,entertainment
+2026-01-18,Amazon - programming books,45.20,shopping
+2026-01-19,Chipotle - lunch,15.80,food
+2026-01-20,Planet Fitness - monthly gym,49.99,health
+2026-01-21,Shell - gas station,65.00,transport
+2026-01-22,Target - household supplies,78.50,shopping
+2026-01-23,DoorDash - dinner delivery,28.90,food
+2026-01-25,Con Edison - electricity bill,95.20,utilities
+2026-01-26,Xfinity - internet bill,79.99,utilities
+2026-01-27,Starbucks - morning coffee,6.80,food
+2026-01-28,AMC - movie tickets x2,32.00,entertainment
+2026-01-30,Trader Joe's - groceries,65.40,food
+2026-01-31,Verizon - phone bill,55.00,utilities
+2026-02-01,Starbucks - morning coffee,7.10,food
+2026-02-02,Uber - commute,19.80,transport
+2026-02-03,Chipotle - lunch,16.20,food
+2026-02-05,Amazon - winter jacket,129.99,shopping
+2026-02-07,Costco - groceries,142.30,food
+2026-02-08,DoorDash - dinner,42.50,food
+2026-02-10,Employer - monthly salary,-5000.00,income
+2026-02-12,Shell - gas station,58.40,transport
+2026-02-14,Nobu Restaurant - Valentine's dinner,185.00,food
+2026-02-15,Landlord - February rent,1800.00,housing
+2026-02-16,Netflix - monthly subscription,15.49,entertainment
+2026-02-17,Spotify - monthly subscription,10.99,entertainment
+2026-02-18,Walgreens - cold medicine,38.60,health
+2026-02-19,Trader Joe's - groceries,72.80,food
+2026-02-20,Planet Fitness - monthly gym,49.99,health
+2026-02-22,Target - clothing and home,95.60,shopping
+2026-02-23,Starbucks - morning coffee,6.50,food
+2026-02-24,Uber - ride,24.30,transport
+2026-02-25,Con Edison - electricity bill,88.40,utilities
+2026-02-26,Xfinity - internet bill,79.99,utilities
+2026-02-27,Steam - game purchase,59.99,entertainment
+2026-02-28,Verizon - phone bill,55.00,utilities
+2026-03-01,Starbucks - morning coffee,7.50,food
+2026-03-02,Chipotle - lunch,15.90,food
+2026-03-03,Amazon - office supplies,78.40,shopping
+2026-03-05,Uber - commute,21.50,transport
+2026-03-06,Trader Joe's - groceries,98.30,food
+2026-03-08,DoorDash - dinner delivery,38.70,food
+2026-03-10,Employer - monthly salary,-5000.00,income
+2026-03-10,AMC - movie tickets,28.50,entertainment
+2026-03-12,Costco - groceries bulk buy,165.20,food
+2026-03-14,Amazon - monitor for home office,299.99,shopping
+2026-03-15,Landlord - March rent,1800.00,housing
+2026-03-16,Starbucks - morning coffee,7.80,food
+2026-03-17,Shell - gas station,72.00,transport
+2026-03-18,Planet Fitness - monthly gym,49.99,health
+2026-03-19,Netflix - monthly subscription,15.49,entertainment
+2026-03-20,Spotify - monthly subscription,10.99,entertainment
+2026-03-21,Walgreens - prescription,45.20,health
+2026-03-22,Subway MetroCard - top up,33.00,transport
+2026-03-23,DoorDash - dinner delivery,52.80,food
+2026-03-24,Target - spring clothing,112.30,shopping
+2026-03-25,Con Edison - electricity bill,102.50,utilities
+2026-03-26,Xfinity - internet bill,79.99,utilities
+2026-03-27,Verizon - phone bill,55.00,utilities
+2026-03-28,Uber - ride,28.90,transport
+2026-03-30,Starbucks - morning coffee,8.20,food
+2026-03-31,Apple - iCloud subscription,14.99,entertainment
