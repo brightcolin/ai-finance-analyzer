@@ -101,6 +101,53 @@ export DEEPSEEK_API_KEY="your-key-here"
 
 Without an API key, the system uses intelligent mock advice based on your actual data patterns.
 
+## CLI
+
+`ai-finance` is installed automatically with the package — no extra steps needed.
+
+```bash
+# Analyze a bill and print a formatted report
+ai-finance analyze bill.csv
+
+# Output JSON (useful for scripting or piping into other tools)
+ai-finance analyze bill.csv --format json
+
+# Offline mode — rules engine + mock advisor, no API key required
+ai-finance analyze bill.csv --no-ai
+
+# Try it immediately with the included English sample
+ai-finance analyze examples/sample_generic.csv --no-ai
+```
+
+Sample output:
+
+```
+============================================================
+  AI Finance Analyzer  —  sample_generic.csv
+============================================================
+
+ANALYSIS
+  Period:        2026-01-02  to  2026-03-31
+  Transactions:  77
+  Total Expense: 9,203.72
+  Total Income:  15,000.00
+  Savings Rate:  38.6%
+
+HEALTH SCORE: 78/100  (Grade B)
+  savings_rate           [##################..] 94
+  essential_ratio        [#########...........] 48
+  ...
+
+RISK ALERTS
+  [HIGH] housing spending accounts for 59% of total expenses
+
+AI ADVICE
+  Your savings rate is strong at 38.6%. Main risk is housing concentration.
+
+  1. [HIGH] Reduce housing spending by 20% ...
+       -> Save approximately $1,080/month
+```
+
 ## Core Metrics
 
 ### Financial Health Score (0-100)
