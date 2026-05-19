@@ -445,3 +445,75 @@ class TestModels:
         assert HealthScore(total_score=65).grade == "C"
         assert HealthScore(total_score=45).grade == "D"
         assert HealthScore(total_score=20).grade == "F"
+
+    def test_analysis_report_currency_default(self):
+        from analyzer.models.schemas import AnalysisReport
+        report = AnalysisReport()
+        assert report.currency == "CNY"
+
+
+# ═══════════════════════════════════════════════════
+# CLI Tests
+# ═══════════════════════════════════════════════════
+
+
+class TestCLI:
+    @pytest.fixture
+    def bill_csv(self, tmp_path):
+        """Minimal USD bill CSV for CLI tests."""
+        content = (
+            "date,description,amount,category\n"
+            "2026-01-10,Employer salary,-$3000.00,income\n"
+            "2026-01-02,Starbucks,$5.50,food\n"
+            "2026-01-03,Uber,$15.00,transport\n"
+            "2026-01-04,Amazon,$50.00,shopping\n"
+            "2026-01-05,Netflix,$15.00,entertainment\n"
+            "2026-01-10,Rent,$900.00,housing\n"
+            "2026-01-15,Electric bill,$80.00,utilities\n"
+        )
+        f = tmp_path / "bill.csv"
+        f.write_text(content, encoding="utf-8")
+        return f
+
+    def test_version(self):
+        from typer.testing import CliRunner
+        from analyzer.cli import app
+        result = CliRunner().invoke(app, ["--version"])
+        assert result.exit_code == 0
+        assert "0.1.0" in result.output
+
+    def test_analyze_text_output(self, bill_csv):
+        from typer.testing import CliRunner
+        from analyzer.cli import app
+        result = CliRunner().invoke(app, ["analyze", str(bill_csv), "--no-ai"])
+        assert result.exit_code == 0
+        assert "ANALYSIS" in result.output
+        assert "HEALTH SCORE" in result.output
+        assert "CATEGORY BREAKDOWN" in result.output
+        assert "AI ADVICE" in result.output
+
+    def test_analyze_json_output(self, bill_csv):
+        import json
+        from typer.testing import CliRunner
+        from analyzer.cli import app
+        result = CliRunner().invoke(app, ["analyze", str(bill_csv), "--no-ai", "--format", "json"])
+        assert result.exit_code == 0
+        data = json.loads(result.output)
+        assert "analysis" in data
+        assert "advice" in data
+        assert data["analysis"]["currency"] == "USD"
+        assert data["analysis"]["total_transactions"] == 7
+
+    def test_analyze_risk_alerts_shown(self, bill_csv):
+        from typer.testing import CliRunner
+        from analyzer.cli import app
+        result = CliRunner().invoke(app, ["analyze", str(bill_csv), "--no-ai"])
+        assert result.exit_code == 0
+        assert "RISK ALERTS" in result.output
+
+    def test_file_not_found(self):
+        from typer.testing import CliRunner
+        from analyzer.cli import app
+        result = CliRunner().invoke(app, ["analyze", "no_such_file.csv"])
+        assert result.exit_code == 1
+        assert "not found" in result.output
