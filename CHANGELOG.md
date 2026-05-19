@@ -31,6 +31,16 @@ from analyzer import run_pipeline, analyze_transactions, get_advice
 - `examples/sample_wechat.csv` — WeChat Pay bill (CNY, 3 months)
 - `examples/sample_generic.csv` — generic CSV with English descriptions and USD amounts (Starbucks, Uber, Amazon, DoorDash, Netflix, etc.) for non-WeChat users
 
+**CLI** (`ai-finance`) — installed automatically with the package:
+```bash
+ai-finance analyze bill.csv               # text output
+ai-finance analyze bill.csv --format json # structured JSON for scripting
+ai-finance analyze bill.csv --no-ai       # offline: rules engine + mock advisor
+ai-finance --version
+```
+
+**Currency auto-detection** — `GenericCSVParser` infers currency from amount symbols in the file (`$` → USD, `€` → EUR, `£` → GBP, `¥/￥` → CNY); falls back to `CURRENCY` env var, then CNY. Detected currency propagates through `AnalysisReport.currency` so the mock advisor and LLM prompts use the correct symbol without any configuration.
+
 **Tooling**:
 - `examples/quickstart.py` — runnable demo; accepts an optional file path argument, works with both sample datasets
 - CI via GitHub Actions (Python 3.10, 3.11, 3.12; 70% coverage minimum enforced)
