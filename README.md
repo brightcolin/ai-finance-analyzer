@@ -180,11 +180,7 @@ Environment variables:
 
 ## Contributing
 
-Contributions welcome! Key areas:
-- New parser plugins (Alipay, bank formats)
-- Improved classification rules
-- Additional analysis metrics
-- Documentation & examples
+Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, PR workflow, and how to add a new Parser.
 
 ## License
 
