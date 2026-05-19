@@ -198,6 +198,9 @@ class AnalysisReport:
     # Risk alerts
     risk_alerts: list[RiskAlert] = field(default_factory=list)
 
+    # Currency detected from the transaction data
+    currency: str = "CNY"
+
     def to_llm_context(self) -> dict:
         """Convert to a clean dict suitable for LLM prompt injection.
 

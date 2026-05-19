@@ -9,12 +9,21 @@ from __future__ import annotations
 
 import csv
 import io
+import os
 import re
 from datetime import date, datetime
 from pathlib import Path
 
 from analyzer.models.schemas import Transaction, TransactionType
 from analyzer.parser.base import BaseParser
+
+SYMBOL_TO_CURRENCY: dict[str, str] = {
+    "$": "USD",
+    "€": "EUR",
+    "£": "GBP",
+    "¥": "CNY",
+    "￥": "CNY",
+}
 
 # Common column name patterns for auto-detection
 AMOUNT_PATTERNS = re.compile(
@@ -52,6 +61,7 @@ class GenericCSVParser(BaseParser):
     def parse(self, filepath: str | Path) -> list[Transaction]:
         """Parse a generic CSV into Transactions using column auto-detection."""
         content = self._read_file(filepath)
+        currency = self._detect_currency(content)
 
         # Detect delimiter
         delimiter = self._detect_delimiter(content)
@@ -71,9 +81,20 @@ class GenericCSVParser(BaseParser):
         for row in reader:
             tx = self._parse_row(row, col_map)
             if tx is not None:
+                tx.currency = currency
                 transactions.append(tx)
 
         return transactions
+
+    def _detect_currency(self, content: str) -> str:
+        """Infer currency from symbols found in file content.
+
+        Falls back to CURRENCY env var, then CNY.
+        """
+        for symbol, currency in SYMBOL_TO_CURRENCY.items():
+            if symbol in content:
+                return currency
+        return os.getenv("CURRENCY", "CNY")
 
     def _detect_delimiter(self, content: str) -> str:
         """Detect CSV delimiter from content."""

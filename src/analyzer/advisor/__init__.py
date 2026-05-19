@@ -26,6 +26,18 @@ from analyzer.models.schemas import (
 
 logger = logging.getLogger(__name__)
 
+_CURRENCY_SYMBOLS: dict[str, str] = {
+    "CNY": "¥",
+    "USD": "$",
+    "EUR": "€",
+    "GBP": "£",
+    "JPY": "¥",
+}
+
+
+def _currency_symbol(currency: str) -> str:
+    return _CURRENCY_SYMBOLS.get(currency, currency)
+
 
 def generate_advice(
     report: AnalysisReport,
@@ -63,8 +75,9 @@ def _llm_advice(report: AnalysisReport, config) -> FinancialAdvice:
         )
 
         context = report.to_llm_context()
-        system_prompt = build_system_prompt(config.currency_symbol)
-        user_prompt = build_analysis_prompt(context, config.currency_symbol)
+        symbol = _currency_symbol(report.currency)
+        system_prompt = build_system_prompt(symbol)
+        user_prompt = build_analysis_prompt(context, symbol)
 
         response = client.chat.completions.create(
             model=config.llm.model,
@@ -135,7 +148,7 @@ def _mock_advice(report: AnalysisReport) -> FinancialAdvice:
     Useful for testing and demo purposes without API access.
     """
     suggestions = []
-    symbol = get_config().currency_symbol
+    symbol = _currency_symbol(report.currency)
 
     # Generate suggestions based on actual analysis data
     for breakdown in report.category_breakdown[:3]:

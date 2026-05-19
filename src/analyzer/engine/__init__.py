@@ -11,6 +11,8 @@ Usage:
 
 from __future__ import annotations
 
+from collections import Counter
+
 from analyzer.engine.health import compute_health_score
 from analyzer.engine.risks import detect_risks
 from analyzer.engine.structure import (
@@ -78,6 +80,10 @@ def analyze(transactions: list[CategorizedTransaction]) -> AnalysisReport:
     # Disposable income estimation
     disposable = total_income - total_expense
 
+    # Dominant currency (most common across all transactions)
+    currencies = [tx.transaction.currency for tx in transactions]
+    currency = Counter(currencies).most_common(1)[0][0]
+
     return AnalysisReport(
         start_date=start_date,
         end_date=end_date,
@@ -92,6 +98,7 @@ def analyze(transactions: list[CategorizedTransaction]) -> AnalysisReport:
         savings_rate=savings_rate,
         volatility_index=volatility,
         risk_alerts=risks,
+        currency=currency,
     )
 
 

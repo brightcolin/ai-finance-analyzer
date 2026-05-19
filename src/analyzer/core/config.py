@@ -69,8 +69,6 @@ class Config:
     llm: LLMConfig = field(default_factory=LLMConfig)
     analyzer: AnalyzerConfig = field(default_factory=AnalyzerConfig)
     currency: str = "CNY"
-    currency_symbol: str = "¥"
-    locale: str = "zh-CN"
     debug: bool = False
 
     @classmethod
